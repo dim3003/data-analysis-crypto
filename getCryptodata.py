@@ -16,7 +16,7 @@ client = Client(api_key, api_secret)
 
 def obtain_cryptodata(Cryptoname):
     start_date = "1 Dec, 2012"
-    end_date = "4 Feb, 2021"
+    end_date = "4 Apr, 2021"
     csvfile = open(f'dataset/data_{Cryptoname}.csv', 'w',newline='')
     candlestick_writer= csv.writer(csvfile, delimiter=',')
 
