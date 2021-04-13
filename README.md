@@ -85,3 +85,5 @@ https://github.com/hbast/pyTree
 
 * paramétrer les output du notebooks pour éviter que ça prenne trop de storage pour github
 
+* enlever les tweets qui sont dupliquer
+
