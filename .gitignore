@@ -263,4 +263,8 @@ Thumbs.db #thumbnail cache on Windows
 .history
 .ionide
 
+## do not include json file
+
+data/
+*.json
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,pycharm
