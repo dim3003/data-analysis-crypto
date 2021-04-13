@@ -74,12 +74,14 @@ put datasets in the "raw" folder
 
 # TO-DO
 
-## merge data
+* merge data
 
-## scrap all data form twitter -> use threading
+* scrap all data form twitter -> use threading
 
 * add access to google drive :) https://medium.com/@chingjunetao/simple-way-to-access-to-google-service-api-a22f4251bb52
 
-## create a structure tree for the report
-* https://github.com/hbast/pyTree
+* create a structure tree for the report
+https://github.com/hbast/pyTree
+
+* paramétrer les output du notebooks pour éviter que ça prenne trop de storage pour github
 
