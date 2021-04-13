@@ -14,6 +14,10 @@ Python 3
 ```bash
 pip3 install -r requirements.txt
 ```
+## Data
+
+put datasets in the "raw" folder 
+
 # Project structure
 
 ```
