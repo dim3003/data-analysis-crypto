@@ -14,6 +14,26 @@ Python 3
 ```bash
 pip3 install -r requirements.txt
 ```
+# Project structure
+
+```
+project
+│   README.md
+│   file001.txt    
+│
+└───folder1
+│   │   file011.txt
+│   │   file012.txt
+│   │
+│   └───subfolder1
+│       │   file111.txt
+│       │   file112.txt
+│       │   ...
+│   
+└───folder2
+    │   file021.txt
+    │   file022.txt
+```
 
 ## Struturing project
 * https://drivendata.github.io/cookiecutter-data-science/
@@ -27,4 +47,7 @@ pip3 install -r requirements.txt
 ## scrap all data form twitter -> use threading
 
 * add access to google drive :) https://medium.com/@chingjunetao/simple-way-to-access-to-google-service-api-a22f4251bb52
+
+## create a structure tree for the report
+* https://github.com/hbast/pyTree
 
