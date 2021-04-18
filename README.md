@@ -90,3 +90,4 @@ https://github.com/hbast/pyTree
 * tester Prophet AI (Facebook) => améliorer notre model 
 * https://facebook.github.io/prophet/docs/diagnostics.html#cross-validation
 
+- [] see if there are all of librairies
