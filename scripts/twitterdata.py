@@ -1,23 +1,27 @@
 import twint
-#import nest_asyncio
 import datetime as dt
+import os
+import shutil
 
-#nest_asyncio.apply()
-
-
-TWITTER_USERNAMES = {
-    'ts':'traderstewie',
-    'tcl':'the_chart_life',
-    'c2u':'canuck2usa',
-    'st': 'sunrisetrader',
-    'tt': 'tmltrader',
-    'wsb': "wallstreetbets"
-}
 
 if __name__ == '__main__':
 
-    #select keywords for each crypto we will train our model on
+    #creates data directory if it does not exists
+    if not os.path.isdir('../data'):
+        os.mkdir('../data')
+        os.mkdir('../data/raw')
+        os.mkdir('../data/preproc')
 
+    if not os.path.isdir('../data/processed'):
+        os.mkdir('../data/processed')
+
+
+    #removes raw and recreate folder
+    shutil.rmtree('../data/raw')
+    os.mkdir('../data/raw')
+
+
+    #select keywords for each crypto we will train our model on
     names = []
 
     bitcoin = ["BTC", "Bitcoin", "bitcoin"]
@@ -33,7 +37,7 @@ if __name__ == '__main__':
         c = twint.Config()
 
         c.Search = name
-        c.Custom["tweet"] = ["id", "created_at","username","tweet"]
+        c.Custom["tweet"] = ["id", "created_at","username","tweet", "likes_count"]
         c.Verified = True
         c.Lang = "en"
         c.Min_replies = 10 # min replies
