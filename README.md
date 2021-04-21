@@ -91,3 +91,9 @@ https://github.com/hbast/pyTree
 * https://facebook.github.io/prophet/docs/diagnostics.html#cross-validation
 
 - [] see if there are all of librairies
+
+# INFOS
+- https://www.reddit.com/r/BinanceExchange/comments/96iymr/api_nomenclature_taker_buy_base_asset_volume_vs/
+
+## Ideas
+- take signal -> derivate of fourier equal to 0
