@@ -10,7 +10,6 @@ if __name__ == '__main__':
     if not os.path.isdir('../data'):
         os.mkdir('../data')
         os.mkdir('../data/raw')
-        os.mkdir('../data/preproc')
 
     if not os.path.isdir('../data/processed'):
         os.mkdir('../data/processed')

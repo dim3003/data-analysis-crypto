@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import json
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from textblob import TextBlob
 
 def processTweet(name):
     #Twitter data
@@ -15,8 +16,8 @@ def processTweet(name):
 
     ###get top 10 users with most likes from last year
 
-    #cut tweet db from last year
-    dfft = dft.where(dft['date'] >= pd.to_datetime('2020-04-19')).dropna()
+    #cut tweet db from last year & clean it
+    dfft = dft.where(dft['date'] >= pd.to_datetime('2020-04-19')).dropna().drop_duplicates(subset=['tweet'])
 
     #get 10 most liked
     top10 = dfft.groupby(['username']).sum()
@@ -27,7 +28,7 @@ def processTweet(name):
 
     #create an empty dataframe with the right columns
 
-    dfF = pd.DataFrame(columns = ['tweet_count', 'daily_sent', *top10])
+    dfF = pd.DataFrame(columns = ['tweet_count', 'daily_sent', 'daily_sent_blob', *top10])
 
 
     #get all unique dates
@@ -47,11 +48,16 @@ def processTweet(name):
         #create sentiment for the day
         model = SentimentIntensityAnalyzer()
         score = []
+        scoreBlob = []
         for j in dfPartial["tweet"]:
             sent_dict = model.polarity_scores(j)
-            score.append(sent_dict['compound'])
-        score = sum(score)/len(score)
+            score.append(sent_dict['compound']) #vaderSentiment analysis
+            scoreBlob.append(TextBlob(j).sentiment.polarity) #textblob sentiment analysis
+
+        score = sum(score)/len(score) #daily mean sentiment vader
+        scoreBlob = sum(scoreBlob)/len(scoreBlob) #daily mean sentiment blob
         dfF.loc[i, 'daily_sent'] = score
+        dfF.loc[i, 'daily_sent_blob'] = scoreBlob
 
 
         #create binary in function of influencer
