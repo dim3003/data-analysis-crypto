@@ -16,13 +16,13 @@ client = Client(api_key, api_secret)
 
 def obtain_cryptodata(Cryptoname):
     start_date = "1 Dec, 2012"
-    end_date = "1 Apr, 2021"
-    csvfile = open(f'dataset/data_{Cryptoname}.csv', 'w',newline='')
+    end_date = "19 Apr, 2021"
+    csvfile = open(f'data/raw/data_{Cryptoname}.csv', 'w',newline='')
     candlestick_writer= csv.writer(csvfile, delimiter=',')
 
     # appel de Binance API pour avoir les données
     # 1er arg: pair de crypto => pour le moment c'est crypto /USDT
-    candlesticks = client.get_historical_klines(f"{Cryptoname}USDT", Client.KLINE_INTERVAL_1DAYBTC, start_date, end_date)
+    candlesticks = client.get_historical_klines(f"{Cryptoname}USDT", Client.KLINE_INTERVAL_1DAY, start_date, end_date)
     candlestick_writer.writerow(['Date','Open','High','Low','Close','Volume','CloseTime','QuoteAssetVolume','NumberofTrade','TakerbuybaseV','TakerbuyquoteV','Ignore'])
     for i in range(len(candlesticks)):
         candlesticks[i][0] = candlesticks[i][0]/1000
