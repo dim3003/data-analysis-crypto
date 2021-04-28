@@ -10,7 +10,6 @@ if __name__ == '__main__':
     if not os.path.isdir('../data'):
         os.mkdir('../data')
         os.mkdir('../data/raw')
-        os.mkdir('../data/preproc')
 
     if not os.path.isdir('../data/processed'):
         os.mkdir('../data/processed')
@@ -40,10 +39,10 @@ if __name__ == '__main__':
         c.Custom["tweet"] = ["id", "created_at","username","tweet", "likes_count"]
         c.Verified = True
         c.Lang = "en"
-        c.Min_replies = 10 # min replies
-        c.Output = f"../data/raw/{name[0]}.json"
+        c.Min_replies = 1 # min replies
+        c.Output = f"../data/raw/{name[0]}_raw.json"
         c.Since = "2017-08-17"
-        c.Until = "2021-04-19"
+        c.Until = "2021-04-26"
         c.Store_json = True
         c.Hide_output = False
 
